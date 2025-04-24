@@ -1,0 +1,28 @@
+export const wordBank: { [key: string]: string[] } = {
+  Animals: [
+    "Elephant",
+    "Lion",
+    "Tiger",
+    "Giraffe",
+    "Zebra",
+    "Monkey",
+    "Kangaroo",
+    "Panda",
+    "Bear",
+  ],
+  Fruits: ["Apple", "Banana", "Cherry", "Date", "Grape", "Kiwi", "Lemon"],
+  Colors: ["Red", "Blue", "Green", "Yellow", "Pink", "Brown", "Black", "White"],
+  Countries: [
+    "USA",
+    "Canada",
+    "Mexico",
+    "Brazil",
+    "Argentina",
+    "UK",
+    "France",
+    "Germany",
+    "Italy",
+    "Spain",
+  ],
+  CodingLanguages: ["Java", "Rust", "Javascript", "Python", "PHP", "Go"],
+};
