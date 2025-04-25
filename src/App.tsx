@@ -39,6 +39,10 @@ const App: React.FC = () => {
     }
   }, [word, guessedLetters, wrongGuesses]); // Re-run when these dependencies change
 
+  const handleRefresh = () => {
+    window.location.reload();
+  };
+
   return (
     <>
       <div
@@ -46,6 +50,16 @@ const App: React.FC = () => {
         className="w-full flex justify-center items-center text-4xl  font-semibold bg-black pt-4 text-blue-100"
       >
         {message}
+      </div>
+      <div className="bg-black pt-5 w-full flex justify-center items-center">
+        <button
+          onClick={handleRefresh}
+          className={`text-blue-100 ${
+            message == "" ? "hidden" : "font-sans"
+          } text-2xl p-2 font-semibold rounded-md active:scale-95 hover:bg-blue-600 cursor-pointer bg-blue-500`}
+        >
+          Refresh
+        </button>
       </div>
       <div className="bg-black h-screen w-full md:grid md:grid-cols-2 md:place-items-center flex flex-col justify-center items-center">
         <Hangman />

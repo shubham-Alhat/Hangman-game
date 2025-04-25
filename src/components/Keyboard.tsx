@@ -35,9 +35,12 @@ const Keyboard: React.FC = () => {
   const checkCorrectLetter = (guessedLetter: string) => {
     if (word.includes(guessedLetter)) {
       dispatch(addGuessLetter(guessedLetter));
-      const spanElement = document.getElementById(guessedLetter);
+      const letterIndex = word.indexOf(guessedLetter);
+      const spanElement = document.querySelector(
+        `span[id="${String(letterIndex)}"][data-key="${guessedLetter}"]`
+      );
       if (spanElement) {
-        spanElement.innerText = guessedLetter;
+        spanElement.textContent = guessedLetter;
       }
     } else {
       dispatch(wrongGuess());
@@ -60,7 +63,7 @@ const Keyboard: React.FC = () => {
   useEffect(() => {
     if (wrongGuesses == 7) {
       for (let index = 0; index < word.length; index++) {
-        const element = document.getElementById(word[index]);
+        const element = document.getElementById(index.toString());
         if (element) {
           element.innerText = word[index];
           element.classList.add("text-green-400");
@@ -82,8 +85,8 @@ const Keyboard: React.FC = () => {
           {word.map((letter: string, index: number) => {
             return (
               <span
-                id={letter}
-                key={index}
+                id={index.toString()}
+                data-key={letter}
                 className="border-b-8 border-amber-50 p-2"
               ></span>
             );
